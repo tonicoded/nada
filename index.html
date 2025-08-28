@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nada - a coin about nothing</title>
+    <meta name="description" content="no roadmap. no team. no utility. no community. just nada.">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Kalam', cursive;
+            background: white;
+            color: black;
+            line-height: 1.4;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        section {
+            margin: 80px 0;
+            transform: rotate(-0.5deg);
+        }
+        
+        section:nth-child(even) {
+            transform: rotate(0.3deg);
+            margin-left: 20px;
+        }
+        
+        section:nth-child(odd) {
+            margin-right: 15px;
+        }
+        
+        h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            text-align: center;
+            transform: rotate(-2deg);
+            margin: 20px 0;
+            letter-spacing: 2px;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin: 30px 0 20px 0;
+            transform: rotate(1deg);
+            text-decoration: underline;
+            text-decoration-style: wavy;
+        }
+        
+        p, li {
+            font-size: 1.2rem;
+            margin: 15px 0;
+            transform: rotate(-0.2deg);
+        }
+        
+        .tagline {
+            text-align: center;
+            font-size: 1.5rem;
+            margin: 10px 0 30px 0;
+            transform: rotate(1deg);
+        }
+        
+        .buy-button {
+            display: block;
+            width: 200px;
+            height: 60px;
+            margin: 40px auto;
+            background: white;
+            border: 3px solid black;
+            font-family: 'Kalam', cursive;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: lowercase;
+            cursor: pointer;
+            transform: rotate(-1deg);
+            text-decoration: none;
+            color: black;
+            text-align: center;
+            line-height: 54px;
+            transition: all 0.1s ease;
+        }
+        
+        .buy-button:hover {
+            animation: wiggle 0.5s ease-in-out infinite;
+        }
+        
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-1deg) translate(0px, 0px); }
+            25% { transform: rotate(-1deg) translate(2px, 1px); }
+            50% { transform: rotate(-1deg) translate(-1px, -2px); }
+            75% { transform: rotate(-1deg) translate(-2px, 1px); }
+        }
+        
+        .subtext {
+            text-align: center;
+            font-size: 1rem;
+            margin-top: 10px;
+            color: #666;
+        }
+        
+        .strikethrough {
+            text-decoration: line-through;
+            text-decoration-color: black;
+            text-decoration-thickness: 2px;
+        }
+        
+        .no-strike {
+            text-decoration: none;
+            font-weight: 700;
+        }
+        
+        ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+        
+        .steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            margin: 40px 0;
+        }
+        
+        .step {
+            text-align: center;
+            margin: 20px;
+            flex: 1;
+            min-width: 150px;
+        }
+        
+        .faq-item {
+            margin: 20px 0;
+            padding: 10px;
+            border: 2px solid black;
+            transform: rotate(-0.5deg);
+        }
+        
+        .faq-item:nth-child(even) {
+            transform: rotate(0.8deg);
+        }
+        
+        .question {
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .answer {
+            font-style: italic;
+        }
+        
+        .roadmap-item {
+            margin: 15px 0;
+            font-size: 1.1rem;
+        }
+        
+        .checkbox {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid black;
+            margin-right: 10px;
+            vertical-align: middle;
+            transform: rotate(-2deg);
+        }
+        
+        .numbers {
+            border: 3px solid black;
+            padding: 30px;
+            margin: 40px 0;
+            transform: rotate(1deg);
+        }
+        
+        .number-item {
+            font-size: 1.3rem;
+            margin: 15px 0;
+            text-align: left;
+        }
+        
+        .socials {
+            text-align: center;
+        }
+        
+        .social-item {
+            margin: 10px 0;
+            font-size: 1.1rem;
+        }
+        
+        footer {
+            text-align: center;
+            margin: 80px 0 40px 0;
+            padding: 20px;
+            border-top: 2px solid black;
+            transform: rotate(-0.3deg);
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        
+        .disclaimer {
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        .spinner {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border: 3px solid black;
+            border-radius: 50%;
+            border-top: 3px solid white;
+            animation: spin 2s linear infinite;
+            margin: 0 10px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            99% { transform: rotate(359deg); }
+            100% { transform: rotate(359deg); }
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            border: 2px solid black;
+            margin: 20px 0;
+            position: relative;
+            transform: rotate(-0.5deg);
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: black;
+            width: 0%;
+            animation: fake-progress 10s ease-out infinite;
+        }
+        
+        @keyframes fake-progress {
+            0% { width: 0%; }
+            90% { width: 99%; }
+            100% { width: 99%; }
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 3rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            p, li {
+                font-size: 1.1rem;
+            }
+            
+            .buy-button {
+                width: 180px;
+                height: 55px;
+                font-size: 1.3rem;
+                line-height: 49px;
+            }
+            
+            .steps {
+                flex-direction: column;
+            }
+            
+            .step {
+                margin: 15px 0;
+            }
+            
+            section {
+                margin: 60px 0;
+                transform: rotate(-0.3deg);
+            }
+            
+            section:nth-child(even) {
+                margin-left: 10px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .buy-button {
+                width: 160px;
+                height: 50px;
+                font-size: 1.2rem;
+                line-height: 44px;
+            }
+            
+            .numbers {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <section>
+            <h1>nada</h1>
+            <p class="tagline">a coin about nothing</p>
+            
+            <!-- SVG Arrow pointing to button -->
+            <div style="text-align: center; margin: 20px 0;">
+                <svg width="100" height="40" style="transform: rotate(-15deg);">
+                    <path d="M10 20 L70 15 L65 10 M70 15 L65 20" stroke="black" stroke-width="2" fill="none"/>
+                    <text x="5" y="35" font-family="Kalam" font-size="12">click dis</text>
+                </svg>
+            </div>
+            
+            <a href="#" class="buy-button" id="buyButton">buy</a>
+            <p class="subtext">0 roadmap. 0 promises. 0 everything.</p>
+        </section>
+
+        <!-- What is this -->
+        <section>
+            <h2>what is this</h2>
+            <ul>
+                <li class="strikethrough">no team</li>
+                <li class="strikethrough">no utility</li>
+                <li class="strikethrough">no community</li>
+                <li class="strikethrough">no tokenomics deck</li>
+                <li class="strikethrough">no vision board</li>
+                <li class="no-strike">just nada.</li>
+            </ul>
+        </section>
+
+        <!-- How it works -->
+        <section>
+            <h2>how it works</h2>
+            <div class="steps">
+                <div class="step">
+                    <p>click buy</p>
+                    <!-- Arrow SVG -->
+                    <svg width="60" height="30" style="margin: 10px;">
+                        <path d="M10 15 L45 15 L40 10 M45 15 L40 20" stroke="black" stroke-width="2" fill="none"/>
+                    </svg>
+                </div>
+                <div class="step">
+                    <p>own nothing</p>
+                    <!-- Empty box SVG -->
+                    <svg width="50" height="50" style="margin: 10px;">
+                        <rect x="5" y="5" width="40" height="40" stroke="black" stroke-width="2" fill="white"/>
+                    </svg>
+                </div>
+                <div class="step">
+                    <p>brag about nothing</p>
+                    <!-- Stick figure SVG -->
+                    <svg width="40" height="60" style="margin: 10px;">
+                        <circle cx="20" cy="10" r="5" stroke="black" stroke-width="2" fill="white"/>
+                        <line x1="20" y1="15" x2="20" y2="35" stroke="black" stroke-width="2"/>
+                        <line x1="20" y1="22" x2="10" y2="28" stroke="black" stroke-width="2"/>
+                        <line x1="20" y1="22" x2="30" y2="28" stroke="black" stroke-width="2"/>
+                        <line x1="20" y1="35" x2="10" y2="50" stroke="black" stroke-width="2"/>
+                        <line x1="20" y1="35" x2="30" y2="50" stroke="black" stroke-width="2"/>
+                        <text x="32" y="15" font-family="Kalam" font-size="8">nada!</text>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section>
+            <h2>faq</h2>
+            <div class="faq-item">
+                <div class="question">why?</div>
+                <div class="answer">nada.</div>
+            </div>
+            <div class="faq-item">
+                <div class="question">wen roadmap?</div>
+                <div class="answer">never.</div>
+            </div>
+            <div class="faq-item">
+                <div class="question">utility?</div>
+                <div class="answer">no.</div>
+            </div>
+            <div class="faq-item">
+                <div class="question">devs?</div>
+                <div class="answer">someone with a marker.</div>
+            </div>
+            <div class="faq-item">
+                <div class="question">is this financial advice?</div>
+                <div class="answer">no.</div>
+            </div>
+            <div class="faq-item">
+                <div class="question">audit?</div>
+                <div class="answer">we audited nothing. it passed.</div>
+            </div>
+        </section>
+
+        <!-- Non-roadmap -->
+        <section>
+            <h2>the non-roadmap</h2>
+            <div class="roadmap-item">
+                <span class="checkbox"></span>nothing q1
+            </div>
+            <div class="roadmap-item">
+                <span class="checkbox"></span>nothing q2
+            </div>
+            <div class="roadmap-item">
+                <span class="checkbox"></span>nothing q3
+            </div>
+            <div class="roadmap-item">
+                <span class="checkbox"></span>nothing q4
+            </div>
+            <p style="font-size: 0.9rem; margin-top: 20px; color: #666;">we might delay nothing.</p>
+        </section>
+
+        <!-- Numbers -->
+        <section>
+            <div class="numbers">
+                <h2 style="margin-top: 0;">numbers</h2>
+                <div class="number-item">holders: ___</div>
+                <div class="number-item">utility: 0</div>
+                <div class="number-item">value: ¯\_(ツ)_/¯</div>
+                <div class="number-item">community: (silence)</div>
+            </div>
+        </section>
+
+        <!-- Loading bar that never finishes -->
+        <section>
+            <h2>loading progress</h2>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+            <p style="text-align: center;">building something<span class="spinner"></span>still nothing</p>
+        </section>
+
+        <!-- Socials -->
+        <section>
+            <div class="socials">
+                <h2>socials</h2>
+                <div class="social-item">x: @nada (maybe)</div>
+                <div class="social-item">discord: (empty room)</div>
+                <div class="social-item">email: no@no.no (not real)</div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="copyright">copyright nada 2025 (nothing reserved)</div>
+        <div class="disclaimer">this is not financial advice. it's barely a website.<br>
+        you can lose money buying nothing.</div>
+    </footer>
+
+    <script>
+        // Button wiggle and fake pump.fun link
+        document.getElementById('buyButton').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('pump.fun link goes here\n\nbuy nothing, hold nothing, get nothing.');
+        });
+
+        // Fake cursor change
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add some random rotation to elements on load
+            const sections = document.querySelectorAll('section');
+            sections.forEach((section, index) => {
+                const randomRotation = (Math.random() - 0.5) * 2;
+                section.style.transform += ` rotate(${randomRotation}deg)`;
+            });
+        });
+
+        // Console easter egg
+        console.log('looking for something? there\'s nada here.');
+    </script>
+</body>
+</html>
