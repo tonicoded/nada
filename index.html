@@ -332,7 +332,7 @@
                 </svg>
             </div>
             
-            <a href="#" class="buy-button" id="buyButton">buy</a>
+            <a href="https://pump.fun" class="buy-button" id="buyButton">buy</a>
             <p class="subtext">0 roadmap. 0 promises. 0 everything.</p>
         </section>
 
@@ -469,11 +469,7 @@
     </footer>
 
     <script>
-        // Button wiggle and fake pump.fun link
-        document.getElementById('buyButton').addEventListener('click', function(e) {
-            e.preventDefault();
-            alert('pump.fun link goes here\n\nbuy nothing, hold nothing, get nothing.');
-        });
+        // Button wiggle - no preventDefault needed, goes to pump.fun
 
         // Fake cursor change
         document.addEventListener('DOMContentLoaded', function() {
